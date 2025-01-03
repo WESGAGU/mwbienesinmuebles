@@ -23,19 +23,27 @@ type Product = {
     Amueblada?: boolean;
     Patio_Trasero?: boolean;
   };
-  videoUrl?: string; 
-  priceM2?: number;  
+  videoUrl?: string;
+  priceM2?: number;
 };
 
 type Image = {
   url: string;
 };
 
+// Definir tipo para la paginación
+type Pagination = {
+  page: number;
+  pageSize: number;
+  pageCount: number;
+  total: number;
+};
+
 // Función para obtener todos los productos de una categoría
 export function getProducts({ categoryId }: { categoryId: string }) {
   return query(
     `products?fields[0]=name&fields[1]=slug&fields[2]=isActive&fields[3]=price&fields[4]=description&fields[5]=departament&fields[6]=Municipality&fields[7]=address&fields[8]=fecha_publicacion&fields[9]=iframe_map&populate[caracteristicasCasas]=*&populate[images][fields][0]=url&filters[product_category][slug][$contains]=${categoryId}`
-  ).then((res: { data: Product[]; meta: { pagination: any } }) => {
+  ).then((res: { data: Product[]; meta: { pagination: Pagination } }) => {
     const { data, meta } = res;
     const products = data.map((product: Product) => {
       const {
@@ -114,8 +122,8 @@ export function getProduct({ productId }: { productId: string }) {
       address,
       fecha_publicacion,
       iframe_map,
-      videoUrl, 
-      priceM2,  
+      videoUrl,
+      priceM2,
       images: imageUrls,
       caracteristicasCasas,
     };

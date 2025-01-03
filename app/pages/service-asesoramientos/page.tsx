@@ -6,7 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter }
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Textarea } from "@/components/ui/textarea"
-import { Home, Phone, Mail, Users, Building, ArrowRight, HelpCircle, Briefcase, Target } from 'lucide-react'
+import { Home, Phone, Mail, Building, ArrowRight, HelpCircle, Briefcase, Target } from 'lucide-react'
 import Link from 'next/link'
 
 const AsesoramientoComponent = () => {

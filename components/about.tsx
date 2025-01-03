@@ -1,8 +1,7 @@
 import React from 'react'
-import Image from 'next/image'
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Home, DollarSign, Users, Building, Briefcase, BarChartIcon as ChartBar, Facebook, Instagram, Phone, BookOpen, Target, Rocket, ArrowRight, Landmark, LandPlot, Factory, MessageCircleMore, CircleHelp   } from 'lucide-react'
+import { Home, DollarSign, Users, Building, Briefcase, BarChartIcon as ChartBar, Facebook, Instagram, Phone, BookOpen, Target, Rocket, ArrowRight, LandPlot, Factory, MessageCircleMore, CircleHelp   } from 'lucide-react'
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 
 const AboutComponent = () => {

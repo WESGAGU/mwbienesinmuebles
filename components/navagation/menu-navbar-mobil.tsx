@@ -4,7 +4,7 @@ import * as React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, X, Facebook, Instagram } from "lucide-react";
+import { Menu, X} from "lucide-react";
 import { Accordion } from "@/components/ui/accordion";
 import {
   AccordionItem,

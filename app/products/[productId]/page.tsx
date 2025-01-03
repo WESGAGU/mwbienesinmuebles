@@ -6,12 +6,10 @@ import {
   FaBath,
   FaCar,
   FaRulerCombined,
-  FaMapMarkerAlt,
   FaDollarSign,
   FaPhoneAlt,
   FaWhatsapp,
   FaHeart,
-  FaShare,
 } from 'react-icons/fa';
 import { Card, CardContent } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
@@ -180,12 +178,16 @@ export default async function ProductPage({
                         Patio Trasero
                       </span>
                       <p className="text-gray-500">
-                        {product.caracteristicasCasas.Patio_Trasero ? "Si" : "No"}
+                        {product.caracteristicasCasas.Patio_Trasero
+                          ? "Si"
+                          : "No"}
                       </p>
                     </div>
                     <div>
                       <span>Precio por m²</span>
-                      <p className="text-gray-500">${product.priceM2?.toLocaleString()}</p>
+                      <p className="text-gray-500">
+                        ${product.priceM2?.toLocaleString()}
+                      </p>
                     </div>
                   </div>
                   <h3 className="text-xl font-semibold mt-6 mb-2">
@@ -255,14 +257,21 @@ export default async function ProductPage({
               <div className="text-center">
                 <Badge className="ml-2">MW Bienes Inmuebles</Badge>
               </div>
-              <div className="flex justify-center space-x-4">
-                <Button className="w-full rounded-xl">
+              <div className="grid grid-cols-2 gap-3">
+                <Link
+                  href="#"
+                  className="w-full rounded-xl flex justify-center items-center py-3 bg-blue-300 hover:bg-blue-500 text-white transition-colors duration-300"
+                >
                   <FaPhoneAlt className="mr-2 h-4 w-4" /> Llamar
-                </Button>
-                <Button className="w-full rounded-xl" variant="outline">
+                </Link>
+                <Link
+                  href="#"
+                  className="w-full rounded-xl flex justify-center items-center py-3 bg-green-400 hover:bg-green-600 text-white transition-colors duration-300"
+                >
                   <FaWhatsapp className="mr-2 h-4 w-4" /> WhatsApp
-                </Button>
+                </Link>
               </div>
+
               <div>
                 <h4 className="text-lg font-semibold mb-2">Contacto directo</h4>
                 <form action={handleForm} className="space-y-4">

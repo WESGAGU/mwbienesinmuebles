@@ -28,10 +28,6 @@ export default function ContactComponent() {
     return () => clearInterval(timer1);
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Formulario enviado");
-  };
 
   return (
     <div className="container mx-auto px-4 py-8">

@@ -1,23 +1,19 @@
-"use client"
+"use client";
 
 import { handleForm } from "@/app/sendEmailAction";
-import React, { useState } from 'react'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
-import { Textarea } from "@/components/ui/textarea"
-import { Home, Phone, Mail, Building, ArrowRight, HelpCircle, Briefcase, Target } from 'lucide-react'
-import Link from 'next/link'
+import React from 'react';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Textarea } from "@/components/ui/textarea";
+import { Home, Phone, Mail, Building, ArrowRight, HelpCircle, Briefcase, Target } from 'lucide-react';
+import Link from 'next/link';
 
 const AsesoramientoComponent = () => {
-  const [nombre, setNombre] = useState('')
-  const [email, setEmail] = useState('')
-  const [mensaje, setMensaje] = useState('')
-
   const servicios = [
     { icon: <Home className="w-6 h-6" />, title: "Compra de Propiedades", description: "Te guiamos en el proceso de encontrar y adquirir tu hogar ideal." },
     { icon: <Building className="w-6 h-6" />, title: "Venta de Inmuebles", description: "Maximiza el valor de tu propiedad con nuestra estrategia de venta." },
-  ]
+  ];
 
   const infoCards = [
     {
@@ -35,12 +31,11 @@ const AsesoramientoComponent = () => {
       title: "¿Cómo trabaja un Asesor Inmobiliario?",
       content: "Un asesor inmobiliario trabaja estrechamente contigo para entender tus necesidades y objetivos. Realiza investigaciones de mercado, organiza visitas a propiedades, negocia en tu nombre, y te guía a través de los aspectos legales y financieros. Su objetivo es hacer que tu experiencia inmobiliaria sea lo más fácil y exitosa posible."
     }
-  ]
-
-
+  ];
 
   return (
     <div className="container mx-auto px-4 py-8">
+      {/* Tarjeta principal */}
       <Card className="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white">
         <CardHeader>
           <CardTitle className="text-2xl md:text-3xl font-bold text-center">Asesoramiento Inmobiliario M&W</CardTitle>
@@ -55,6 +50,7 @@ const AsesoramientoComponent = () => {
         </CardContent>
       </Card>
 
+      {/* Tarjetas de información */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
         {infoCards.map((card, index) => (
           <Card key={index} className="bg-gradient-to-br from-emerald-50 to-teal-100 dark:from-emerald-900 dark:to-teal-800 transition-all duration-300 hover:shadow-lg hover:scale-105">
@@ -71,6 +67,7 @@ const AsesoramientoComponent = () => {
         ))}
       </div>
 
+      {/* Tarjetas de servicios */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
         {servicios.map((servicio, index) => (
           <Card key={index} className="bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-blue-900 dark:to-indigo-800 transition-all duration-300 hover:shadow-lg hover:scale-105">
@@ -87,9 +84,10 @@ const AsesoramientoComponent = () => {
         ))}
       </div>
 
+      {/* Formulario de contacto y tarjetas de contacto */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-       {/* Formulario de contacto */}
-       <Card className="col-span-1 md:col-start-2 md:row-span-3 lg:col-span-1 transition-all duration-300 hover:shadow-lg hover:scale-105 bg-gradient-to-br from-green-50 to-emerald-100 dark:from-green-900 dark:to-emerald-800">
+        {/* Formulario de contacto */}
+        <Card className="col-span-1 md:col-start-2 md:row-span-3 lg:col-span-1 transition-all duration-300 hover:shadow-lg hover:scale-105 bg-gradient-to-br from-green-50 to-emerald-100 dark:from-green-900 dark:to-emerald-800">
           <CardHeader>
             <CardTitle className="text-2xl font-bold text-green-700 dark:text-green-300">
               Envíanos un mensaje
@@ -99,7 +97,7 @@ const AsesoramientoComponent = () => {
             </CardDescription>
           </CardHeader>
           <CardContent>
-          <form action={handleForm} method="POST" className="space-y-4">
+            <form action={handleForm} method="POST" className="space-y-4">
               <Input
                 type="text"
                 name="title"
@@ -115,7 +113,7 @@ const AsesoramientoComponent = () => {
               <Input
                 type="text"
                 name="to_number"
-                placeholder="Numero de teléfono"
+                placeholder="Número de teléfono"
                 className="bg-white bg-opacity-50 dark:bg-gray-800 dark:bg-opacity-50 border-green-300 dark:border-green-700"
               />
               <Input
@@ -140,20 +138,21 @@ const AsesoramientoComponent = () => {
           </CardContent>
         </Card>
 
-        {/* Card de numeros de llamadas */}
-        <Card className="col-span-1 md:row-span-1 lg:row-span-1  bg-gradient-to-br from-sky-50 to-blue-100 dark:from-sky-900 dark:to-blue-800 transition-all duration-300 hover:shadow-lg hover:scale-105">
+        {/* Tarjeta de números de teléfono */}
+        <Card className="col-span-1 md:row-span-1 lg:row-span-1 bg-gradient-to-br from-sky-50 to-blue-100 dark:from-sky-900 dark:to-blue-800 transition-all duration-300 hover:shadow-lg hover:scale-105">
           <CardHeader>
             <CardTitle className="flex items-center text-sky-700 dark:text-sky-300">
               <Phone className="w-6 h-6 mr-2" />
               Llámanos
             </CardTitle>
           </CardHeader>
-          <CardContent className="flex">
+          <CardContent className="flex flex-col space-y-2">
             <p className="text-sky-800 dark:text-sky-200">+505 84433992</p>
-            <p className="text-sky-800 dark:text-sky-200">+505 84433992</p>
+            <p className="text-sky-800 dark:text-sky-200">+505 57255784</p>
           </CardContent>
         </Card>
 
+        {/* Tarjeta de correo electrónico */}
         <Card className="col-span-1 md:col-start-2 md:row-start-2 bg-gradient-to-br from-sky-50 to-blue-100 dark:from-sky-900 dark:to-blue-800 transition-all duration-300 hover:shadow-lg hover:scale-105">
           <CardHeader>
             <CardTitle className="flex items-center text-sky-700 dark:text-sky-300">
@@ -166,6 +165,7 @@ const AsesoramientoComponent = () => {
           </CardContent>
         </Card>
 
+        {/* Tarjeta de más formas de contacto */}
         <Card className="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 text-white transition-all duration-300 hover:shadow-lg hover:scale-105">
           <CardHeader>
             <CardTitle className="text-xl font-bold">Más Formas de Contacto</CardTitle>
@@ -184,7 +184,7 @@ const AsesoramientoComponent = () => {
         </Card>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default AsesoramientoComponent;

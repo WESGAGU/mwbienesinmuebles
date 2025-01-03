@@ -1,0 +1,22 @@
+# Api de home
+GET http://localhost:1337/api/home?populate=cover
+Authorization: Bearer 93c4a0ea487efd80aed7c5921b5a43fea6a95cae55a5d11085ee6db8a5137a814fd9c65b42754fd3660c38b73d87e86f84be0007beb5d905a3326ff575aff93087b01ece4af2d7d1134ae8f2a120a48ef6492344009717026ed3301f75d010717a88da444a83ae4399d95b64d0b92e6cbb14495e4ded85e99150024595528de6
+
+
+
+### Api de las categorias
+
+GET http://localhost:1337/api/product-categories?fields[0]=name&fields[1]=slug&fields[2]=description&populate[cover][fields][0]=url
+Authorization: Bearer 93c4a0ea487efd80aed7c5921b5a43fea6a95cae55a5d11085ee6db8a5137a814fd9c65b42754fd3660c38b73d87e86f84be0007beb5d905a3326ff575aff93087b01ece4af2d7d1134ae8f2a120a48ef6492344009717026ed3301f75d010717a88da444a83ae4399d95b64d0b92e6cbb14495e4ded85e99150024595528de6
+
+
+
+### Api de los productos
+
+GET http://localhost:1337/api/products?filters[product_category][slug][$contains]=lands
+Authorization: Bearer 93c4a0ea487efd80aed7c5921b5a43fea6a95cae55a5d11085ee6db8a5137a814fd9c65b42754fd3660c38b73d87e86f84be0007beb5d905a3326ff575aff93087b01ece4af2d7d1134ae8f2a120a48ef6492344009717026ed3301f75d010717a88da444a83ae4399d95b64d0b92e6cbb14495e4ded85e99150024595528de6
+
+### Api de los productos 
+
+GET http://localhost:1337/api/products?fields[0]=name&fields[1]=slug&fields[2]=isActive&fields[3]=price&fields[4]=description&fields[5]=departament&fields[6]=Municipality&fields[7]=address&fields[8]=fecha_publicacion&fields[9]=map_Iframe&populate[caracteristicasCasas]=*&populate[images][fields][0]=url
+Authorization: Bearer 93c4a0ea487efd80aed7c5921b5a43fea6a95cae55a5d11085ee6db8a5137a814fd9c65b42754fd3660c38b73d87e86f84be0007beb5d905a3326ff575aff93087b01ece4af2d7d1134ae8f2a120a48ef6492344009717026ed3301f75d010717a88da444a83ae4399d95b64d0b92e6cbb14495e4ded85e99150024595528de6

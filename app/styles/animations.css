@@ -1,0 +1,43 @@
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  
+  .typing-animation {
+    display: inline-block;
+    overflow: hidden;
+    border-right: .15em solid orange;
+    white-space: nowrap;
+    margin: 0;
+    letter-spacing: .15em;
+    animation: 
+      typing 3.5s steps(40, end),
+      blink-caret .75s step-end infinite;
+  }
+  
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: orange; }
+  }
+
+/* ANIMACIONES DEL NAVBAR */
+/* Animación para el estado atTop */
+.navbar-top {
+  animation: navbarExpand 0.4s ease-in-out forwards; /* Animación suave */
+}
+
+/* animations.css */
+.navbar-transition {
+  transition: background-color 0.3s ease, padding 0.3s ease, margin 0.3s ease;
+}
+
+@keyframes navbarExpand {
+  0% {
+    padding: 0.5rem; /* Tamaño reducido al ocultarse */
+  }
+  100% {
+    padding: 1rem; /* Tamaño normal al regresar */
+  }
+}
+

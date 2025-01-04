@@ -1,3 +1,4 @@
+// app/category/[categoryId]/page.tsx
 import { getProducts } from "@/lib/get-products";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -6,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import Link from "next/link";
+import { Pagination } from "@/components/funcionalidades/pagination"; // Importa el componente de paginación
 import {
   Select,
   SelectContent,
@@ -23,10 +25,11 @@ import { IoIosArrowDown } from 'react-icons/io';
 import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
 
 export default async function CategoryPage(
-  { params }: { params: { categoryId: string } }
+  { params, searchParams }: { params: { categoryId: string }, searchParams: { page?: string } }
 ) {
   const { categoryId } = params;
-  const { pagination, products } = await getProducts({ categoryId });
+  const currentPage = parseInt(searchParams.page || "1", 10);
+  const { pagination, products } = await getProducts({ categoryId, page: currentPage });
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -595,31 +598,11 @@ export default async function CategoryPage(
           </div>
 
           {/* Paginación */}
-          <div className="mt-8 flex justify-center items-center gap-4">
-            <Button
-              variant="outline"
-              disabled={pagination.page === 1}
-              onClick={() => {
-                // Lógica para ir a la página anterior
-                console.log("Ir a la página anterior");
-              }}
-            >
-              Anterior
-            </Button>
-            <span className="text-gray-600 dark:text-gray-400">
-              Página {pagination.page} de {pagination.pageCount}
-            </span>
-            <Button
-              variant="outline"
-              disabled={pagination.page === pagination.pageCount}
-              onClick={() => {
-                // Lógica para ir a la página siguiente
-                console.log("Ir a la página siguiente");
-              }}
-            >
-              Siguiente
-            </Button>
-          </div>
+          <Pagination
+            currentPage={currentPage}
+            totalPages={pagination.pageCount}
+            categoryId={categoryId}
+          />
         </div>
       </div>
     </div>

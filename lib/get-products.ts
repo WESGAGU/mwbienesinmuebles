@@ -40,9 +40,51 @@ type Pagination = {
 };
 
 // Función para obtener todos los productos de una categoría
-export function getProducts({ categoryId }: { categoryId: string }) {
+// export function getProducts({ categoryId }: { categoryId: string }) {
+//   return query(
+//     `products?fields[0]=name&fields[1]=slug&fields[2]=isActive&fields[3]=price&fields[4]=description&fields[5]=departament&fields[6]=Municipality&fields[7]=address&fields[8]=fecha_publicacion&fields[9]=iframe_map&populate[caracteristicasCasas]=*&populate[images][fields][0]=url&filters[product_category][slug][$contains]=${categoryId}`
+//   ).then((res: { data: Product[]; meta: { pagination: Pagination } }) => {
+//     const { data, meta } = res;
+//     const products = data.map((product: Product) => {
+//       const {
+//         name,
+//         slug,
+//         isActive,
+//         price,
+//         description,
+//         departament,
+//         Municipality,
+//         address,
+//         fecha_publicacion,
+//         iframe_map,
+//         images,
+//         caracteristicasCasas,
+//       } = product;
+
+//       const image = `${STRAPI_HOST}${images[0].url}`;
+//       return {
+//         name,
+//         slug,
+//         isActive,
+//         price,
+//         description,
+//         departament,
+//         Municipality,
+//         address,
+//         fecha_publicacion,
+//         iframe_map,
+//         image,
+//         caracteristicasCasas,
+//       };
+//     });
+
+//     return { products, pagination: meta.pagination };
+//   });
+// }
+
+export function getProducts({ categoryId, page = 1 }: { categoryId: string; page?: number }) {
   return query(
-    `products?fields[0]=name&fields[1]=slug&fields[2]=isActive&fields[3]=price&fields[4]=description&fields[5]=departament&fields[6]=Municipality&fields[7]=address&fields[8]=fecha_publicacion&fields[9]=iframe_map&populate[caracteristicasCasas]=*&populate[images][fields][0]=url&filters[product_category][slug][$contains]=${categoryId}`
+    `products?fields[0]=name&fields[1]=slug&fields[2]=isActive&fields[3]=price&fields[4]=description&fields[5]=departament&fields[6]=Municipality&fields[7]=address&fields[8]=fecha_publicacion&fields[9]=iframe_map&populate[caracteristicasCasas]=*&populate[images][fields][0]=url&filters[product_category][slug][$contains]=${categoryId}&pagination[page]=${page}&pagination[pageSize]=10`
   ).then((res: { data: Product[]; meta: { pagination: Pagination } }) => {
     const { data, meta } = res;
     const products = data.map((product: Product) => {

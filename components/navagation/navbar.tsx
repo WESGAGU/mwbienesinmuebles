@@ -50,7 +50,7 @@ const Navbar = () => {
         {/* Logo y Título */}
         <div className="hidden lg:flex items-center justify-center gap-2">
           <Image
-            src={"/favicon3.png"}
+            src={"/MW.png"}
             alt="logoImage"
             width={60}
             height={60}

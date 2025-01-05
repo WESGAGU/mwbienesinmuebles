@@ -4,9 +4,9 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'http',
-        hostname: 'localhost',
-        port: '1337', // El puerto de tu servidor Strapi
+        protocol: 'https',
+        hostname: 'mwbackend.onrender.com',
+        port: '', // El puerto de tu servidor Strapi
         pathname: '/uploads/**', // Ruta donde se encuentran las imágenes
       },
     ],

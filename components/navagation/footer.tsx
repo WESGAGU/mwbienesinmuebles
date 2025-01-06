@@ -29,15 +29,15 @@ const Footer = () => {
               Creando soluciones innovadoras para un futuro mejor.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="hover:text-pink-200 transition-colors">
+              <Link href="https://www.facebook.com/profile.php?id=61567937872394" className="hover:text-pink-200 transition-colors" target='_blank'>
                 <Facebook size={24} />
-              </a>
-              <a href="#" className="hover:text-pink-200 transition-colors">
+              </Link>
+              <Link href="#" className="hover:text-pink-200 transition-colors">
                 <Instagram size={24} />
-              </a>
-              <a href="#" className="hover:text-pink-200 transition-colors">
+              </Link>
+              <Link href="#" className="hover:text-pink-200 transition-colors">
                 <Twitter size={24} />
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -54,10 +54,10 @@ const Footer = () => {
                 <AccordionItem value="item-1">
                   <AccordionTrigger>Servicios</AccordionTrigger>
                   <AccordionContent>
-                    <Link href="/pages/service-prestamos">Prestamos</Link>
+                    <Link href="/pages/service-prestamos" className='text-gray-300 hover:underline'>Prestamos</Link>
                   </AccordionContent>
                   <AccordionContent>
-                    <Link href="/pages/service-asesoramientos">Asesoramientos</Link>
+                    <Link href="/pages/service-asesoramientos" className='text-gray-300 hover:underline'>Asesoramientos</Link>
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>

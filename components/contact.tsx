@@ -53,7 +53,7 @@ export default function ContactComponent() {
             <div className="flex items-center">
               <MdEmail className="w-6 h-6 text-blue-600 dark:text-blue-400 mr-4" />
               <p className="text-gray-800 dark:text-gray-200">
-                MWbienesinmuebles@gmail.com
+                mwbienesinmuebles@gmail.com
               </p>
             </div>
             <div className="flex items-center">
@@ -162,7 +162,7 @@ export default function ContactComponent() {
           <CardContent>
             <div className="flex justify-center space-x-6">
               <Link
-                href=""
+                href="https://www.facebook.com/profile.php?id=61567937872394" target="_blank"
                 className="bg-blue-600 text-white rounded-lg p-4 hover:bg-blue-700 transition-colors"
               >
                 <FaFacebook className="w-8 h-8" />

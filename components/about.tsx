@@ -74,10 +74,10 @@ const AboutComponent = () => {
               Ingeniero Civil apasionado por el desarrollo inmobiliario. Aporta el asesoramiento adecuado para elegir la mejor opcion en tu interes inmobiliario.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300">
+              <a href="https://www.facebook.com/mike.b.lanuza" className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300" target='_blank'>
                 <Facebook size={20} />
               </a>
-              <a href="#" className="text-pink-600 hover:text-pink-800 dark:text-pink-400 dark:hover:text-pink-300">
+              <a href="https://www.instagram.com/mikebl_03?fbclid=IwY2xjawHpHvRleHRuA2FlbQIxMAABHeaBg7qUdcjYQpHuBoOBX5Fp3XdpfI-cpdavB990BQL62LPU7R3ED7W9FA_aem_cMaP-vo92nznFQ88VIO-vw" className="text-pink-600 hover:text-pink-800 dark:text-pink-400 dark:hover:text-pink-300" target='_blank'>
                 <Instagram size={20} />
               </a>
             </div>
@@ -97,15 +97,15 @@ const AboutComponent = () => {
           <CardContent className="text-rose-800 dark:text-rose-200">
             <p>Ofrecemos una amplia gama de propiedades para satisfacer las necesidades de cada cliente.</p>
             <div className="flex space-x-4 mt-4">
-              <a href="#" className="flex items-center text-rose-700 dark:text-rose-300 hover:underline">
+              <a href="/categories/casas" className="flex items-center text-rose-700 dark:text-rose-300 hover:underline">
                 <Home className="mr-2" />
                 Casas
               </a>
-              <a href="#" className="flex items-center text-rose-700 dark:text-rose-300 hover:underline">
+              <a href="/categories/terrenos" className="flex items-center text-rose-700 dark:text-rose-300 hover:underline">
                 <LandPlot className="mr-2" />
                 Terrenos
               </a>
-              <a href="#" className="flex items-center text-rose-700 dark:text-rose-300 hover:underline">
+              <a href="/categories/fincas" className="flex items-center text-rose-700 dark:text-rose-300 hover:underline">
                 <Factory className="mr-2" />
                 Fincas
               </a>
@@ -144,10 +144,11 @@ const AboutComponent = () => {
               Ingeniero de Sistemas con visión innovadora. Integra tecnología en nuestros procesos.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300">
+              <a href="https://www.facebook.com/wes.garcia.336/" className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300" target='_blank'>
                 <Facebook size={20} />
               </a>
-              <a href="#" className="text-pink-600 hover:text-pink-800 dark:text-pink-400 dark:hover:text-pink-300">
+              <a href="https://www.instagram.com/garciawes12?fbclid=IwZXh0bgNhZW0CMTAAAR3ho63he15DcYV_lTGYjyn5Jx66TPnPdkKHJJl5HfTnpTkShHfoQuHDz-o_aem_8zw2G_Hiz5Yqtm3m47WbQQ" className="text-pink-600 hover:text-pink-800 dark:text-pink-400 dark:hover:text-pink-300"
+              target='_blank'>
                 <Instagram size={20} />
               </a>
             </div>

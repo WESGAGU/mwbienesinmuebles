@@ -31,7 +31,7 @@ const MenuNavbarMobil = () => {
           {/* Encabezado con imagen y título */}
           <div className="flex flex-col items-center mt-4">
             <Image
-              src="/favicon3.png"
+              src="/MW.png"
               alt="LogoImage"
               width={100}
               height={100}

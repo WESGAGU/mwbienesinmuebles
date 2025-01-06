@@ -11,12 +11,12 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
           <div className="space-y-4">
              <Image
-                src="/favicon3.png"
+                src="/MW.png"
                 alt="Imagen de propiedad"
                 width={80}
                 height={80}
               />
-            <h3 className="text-2xl font-bold">Nuestra Empresa</h3>
+            <h3 className="text-2xl font-bold">MW Bienes Inmuebles</h3>
             <p className="text-sm">Creando soluciones innovadoras para un futuro mejor.</p>
             <div className="flex space-x-4">
               <a href="#" className="hover:text-pink-200 transition-colors">
@@ -36,8 +36,8 @@ const Footer = () => {
             <ul className="space-y-2">
               <li><a href="#" className="hover:text-pink-200 transition-colors">Inicio</a></li>
               <li><a href="#" className="hover:text-pink-200 transition-colors">Servicios</a></li>
-              <li><a href="#" className="hover:text-pink-200 transition-colors">Acerca de</a></li>
-              <li><a href="#" className="hover:text-pink-200 transition-colors">Contacto</a></li>
+              <li><a href="/pages/about" className="hover:text-pink-200 transition-colors">Sobre Nosotros</a></li>
+              <li><a href="/pages/contact" className="hover:text-pink-200 transition-colors">Contacto</a></li>
             </ul>
           </div>
           
@@ -45,9 +45,9 @@ const Footer = () => {
             <h3 className="text-xl font-semibold">Contacto</h3>
             <p className="flex items-center">
               <Mail className="mr-2" size={18} />
-              info@ejemplo.com
+              mwbienesinmuebles@gmail.com
             </p>
-            <p>123 Calle Principal, Ciudad, País</p>
+            <p>Sector #8 Jalapa, Nueva Segovia</p>
           </div>
           
           <div className="space-y-4  mt-0 md:mt-24">
@@ -67,7 +67,7 @@ const Footer = () => {
         </div>
         
         <div className="mt-8 pt-8 border-t border-white/10 text-center text-sm">
-          <p>&copy; 2024 Nuestra Empresa. Todos los derechos reservados.</p>
+          <p>&copy; 2024 MW Bienes Inmuebles. Todos los derechos reservados.</p>
         </div>
       </div>
     </footer>

@@ -34,7 +34,7 @@ const Footer = () => {
           <div className="space-y-4 mt-0 md:mt-24">
             <h3 className="text-xl font-semibold">Enlaces Rápidos</h3>
             <ul className="space-y-2">
-              <li><a href="#" className="hover:text-pink-200 transition-colors">Inicio</a></li>
+              <li><a href="/" className="hover:text-pink-200 transition-colors">Inicio</a></li>
               <li><a href="#" className="hover:text-pink-200 transition-colors">Servicios</a></li>
               <li><a href="/pages/about" className="hover:text-pink-200 transition-colors">Sobre Nosotros</a></li>
               <li><a href="/pages/contact" className="hover:text-pink-200 transition-colors">Contacto</a></li>

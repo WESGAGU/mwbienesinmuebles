@@ -1,7 +1,5 @@
-// stores/useFavoritesStore.ts
 import { create } from 'zustand';
 
-// Define y exporta el tipo para un producto favorito
 export interface Product {
   slug: string;
   name: string;

@@ -1,5 +1,4 @@
-// app/pages/loved-products/page.tsx
-"use client"; // Asegúrate de que este componente sea del lado del cliente
+"use client"; 
 import { useFavoritesStore, Product } from "@/app/FavoritesContext"; // Importa el store y el tipo
 import Link from "next/link";
 import { Button } from "@/components/ui/button";

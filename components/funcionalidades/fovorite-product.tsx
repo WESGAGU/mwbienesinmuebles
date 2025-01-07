@@ -1,10 +1,9 @@
-// components/funcionalidades/favorite-product.tsx
 "use client";
 import { useFavoritesStore, Product } from "@/app/FavoritesContext"; 
 import { FaHeart } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 
-// Define las props del componente
+
 interface FavoriteProductProps {
   product: Product; // Usa el tipo Product importado
 }

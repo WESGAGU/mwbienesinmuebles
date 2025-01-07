@@ -1,3 +1,4 @@
+
 import { getProduct } from '@/lib/get-products';
 import { Badge } from '@/components/ui/badge';
 import Link from 'next/link';
@@ -26,6 +27,7 @@ import {
 } from '@/components/ui/accordion';
 import ShareButton from '@/components/funcionalidades/share-button';
 import ImageCarousel from '@/components/funcionalidades/image-carousel'; // Importa el nuevo componente
+import FavoriteProduct from '@/components/funcionalidades/fovorite-product';
 
 export default async function ProductPage({
   params,
@@ -62,9 +64,7 @@ export default async function ProductPage({
               {product.name}
             </h1>
             <div className="flex space-x-2">
-              <Button variant="outline" size="icon">
-                <FaHeart className="h-4 w-4" />
-              </Button>
+            <FavoriteProduct product={product} />
               <ShareButton
                 title={shareData.title}
                 text={shareData.text}

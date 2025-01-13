@@ -1,11 +1,12 @@
 import { create } from 'zustand';
+import { useEffect } from 'react';
 
 export interface Product {
   slug: string;
   name: string;
   description: string;
   price: number;
-  images: string[]; // Array de URLs de imágenes
+  images: string[];
   caracteristicasCasas: {
     Habitaciones: number;
     bathrooms: number;
@@ -23,30 +24,72 @@ export interface Product {
   priceM2?: number;
 }
 
-// Define el tipo para el store de favoritos
 interface FavoritesStore {
   favorites: Product[];
   addFavorite: (product: Product) => void;
   removeFavorite: (slug: string) => void;
+  setFavorites: (favorites: Product[]) => void;
+  initializeFavorites: () => void; // Añadir esta función
 }
 
-// Crea el store de Zustand
-export const useFavoritesStore = create<FavoritesStore>((set) => ({
-  favorites: [], // Estado inicial: lista vacía de favoritos
+// Función para cargar los favoritos desde localStorage (solo en el cliente)
+const loadFavorites = (): Product[] => {
+  if (typeof window !== 'undefined') {
+    const favorites = localStorage.getItem('favorites');
+    return favorites ? JSON.parse(favorites) : [];
+  }
+  return [];
+};
 
-  // Función para agregar un producto a favoritos
+// Función para guardar los favoritos en localStorage (solo en el cliente)
+const saveFavorites = (favorites: Product[]) => {
+  if (typeof window !== 'undefined') {
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+  }
+};
+
+export const useFavoritesStore = create<FavoritesStore>((set) => ({
+  favorites: [], // Estado inicial vacío (se llenará en el cliente)
+
+  // Función para inicializar los favoritos desde localStorage
+  initializeFavorites: () => {
+    set({ favorites: loadFavorites() });
+  },
+
   addFavorite: (product) =>
     set((state) => {
-      // Evita duplicados usando "slug"
       if (!state.favorites.some((fav) => fav.slug === product.slug)) {
-        return { favorites: [...state.favorites, product] };
+        const newFavorites = [...state.favorites, product];
+        saveFavorites(newFavorites);
+        return { favorites: newFavorites };
       }
       return state;
     }),
 
-  // Función para eliminar un producto de favoritos usando "slug"
   removeFavorite: (slug) =>
-    set((state) => ({
-      favorites: state.favorites.filter((product) => product.slug !== slug),
-    })),
+    set((state) => {
+      const newFavorites = state.favorites.filter((product) => product.slug !== slug);
+      saveFavorites(newFavorites);
+      return { favorites: newFavorites };
+    }),
+
+  setFavorites: (favorites) => set({ favorites }),
 }));
+
+// Hook para sincronizar favoritos entre pestañas
+export const useSyncFavorites = () => {
+  const setFavorites = useFavoritesStore((state) => state.setFavorites);
+
+  useEffect(() => {
+    const handleStorageChange = (event: StorageEvent) => {
+      if (event.key === 'favorites') {
+        setFavorites(event.newValue ? JSON.parse(event.newValue) : []);
+      }
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+    };
+  }, [setFavorites]);
+};

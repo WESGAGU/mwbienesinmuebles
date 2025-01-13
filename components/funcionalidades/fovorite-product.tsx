@@ -1,8 +1,7 @@
 "use client";
-import { useFavoritesStore, Product } from "@/app/FavoritesContext"; 
+import { useFavoritesStore, Product } from "@/app/FavoritesContext";
 import { FaHeart } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
-
 
 interface FavoriteProductProps {
   product: Product; // Usa el tipo Product importado

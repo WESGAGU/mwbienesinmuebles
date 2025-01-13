@@ -1,12 +1,11 @@
 import { create } from 'zustand';
 
 export interface Product {
-  id: number;
   slug: string;
   name: string;
   description: string;
   price: number;
-  images: string[];
+  images: string[]; // Array de URLs de imágenes
   caracteristicasCasas: {
     Habitaciones: number;
     bathrooms: number;
@@ -24,110 +23,30 @@ export interface Product {
   priceM2?: number;
 }
 
+// Define el tipo para el store de favoritos
 interface FavoritesStore {
   favorites: Product[];
-  addFavorite: (product: Product) => Promise<void>;
-  removeFavorite: (productId: number) => Promise<void>;
-  fetchFavorites: () => Promise<void>;
+  addFavorite: (product: Product) => void;
+  removeFavorite: (slug: string) => void;
 }
 
-const API_URL = process.env.NODE_ENV === 'production' 
-  ? process.env.STRAPI_HOST 
-  : process.env.API_URL;
-
-const isAuthenticated = (): boolean => {
-  const token = localStorage.getItem('token');
-  return !!token;
-};
-
+// Crea el store de Zustand
 export const useFavoritesStore = create<FavoritesStore>((set) => ({
-  favorites: [],
+  favorites: [], // Estado inicial: lista vacía de favoritos
 
-  fetchFavorites: async () => {
-    try {
-      const token = localStorage.getItem('token');
-      if (!token) {
-        throw new Error('Usuario no autenticado');
+  // Función para agregar un producto a favoritos
+  addFavorite: (product) =>
+    set((state) => {
+      // Evita duplicados usando "slug"
+      if (!state.favorites.some((fav) => fav.slug === product.slug)) {
+        return { favorites: [...state.favorites, product] };
       }
+      return state;
+    }),
 
-      const response = await fetch(`${API_URL}/api/users/me?populate=products`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-      const userData = await response.json();
-      set({ favorites: userData.products || [] });
-    } catch (error) {
-      console.error('Error al obtener favoritos:', error);
-    }
-  },
-
-  addFavorite: async (product) => {
-    if (!isAuthenticated()) {
-      throw new Error('Usuario no autenticado');
-    }
-
-    try {
-      const token = localStorage.getItem('token');
-      if (!token) {
-        throw new Error('Usuario no autenticado');
-      }
-
-      await fetch(`${API_URL}/api/users/me`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({
-          products: {
-            connect: [product.id],
-          },
-        }),
-      });
-
-      set((state) => {
-        if (!state.favorites.some((fav) => fav.id === product.id)) {
-          return { favorites: [...state.favorites, product] };
-        }
-        return state;
-      });
-    } catch (error) {
-      console.error('Error al agregar favorito:', error);
-      throw error;
-    }
-  },
-
-  removeFavorite: async (productId) => {
-    if (!isAuthenticated()) {
-      throw new Error('Usuario no autenticado');
-    }
-
-    try {
-      const token = localStorage.getItem('token');
-      if (!token) {
-        throw new Error('Usuario no autenticado');
-      }
-
-      await fetch(`${API_URL}/api/users/me`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({
-          products: {
-            disconnect: [productId],
-          },
-        }),
-      });
-
-      set((state) => ({
-        favorites: state.favorites.filter((product) => product.id !== productId),
-      }));
-    } catch (error) {
-      console.error('Error al eliminar favorito:', error);
-      throw error;
-    }
-  },
+  // Función para eliminar un producto de favoritos usando "slug"
+  removeFavorite: (slug) =>
+    set((state) => ({
+      favorites: state.favorites.filter((product) => product.slug !== slug),
+    })),
 }));

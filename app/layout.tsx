@@ -4,6 +4,8 @@ import "./globals.css";
 import Navbar from "@/components/navagation/navbar";
 import Footer from "@/components/navagation/footer";
 import { ThemeProvider } from "@/components/theme-provider";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -31,6 +33,8 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <Analytics/>
+        <SpeedInsights/>
         <ThemeProvider
             attribute="class"
             defaultTheme="system"

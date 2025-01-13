@@ -8,7 +8,18 @@ import { Input } from '@/components/ui/input';
 import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import Link from 'next/link';
-import { UserPlus } from 'lucide-react';
+import { UserPlus, CheckCircle } from 'lucide-react';
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
+
+interface ApiError {
+  response?: {
+    data?: {
+      error?: {
+        message?: string;
+      };
+    };
+  };
+}
 
 export default function RegisterPage() {
   const router = useRouter();
@@ -18,6 +29,7 @@ export default function RegisterPage() {
     password: '',
   });
   const [error, setError] = useState('');
+  const [isSuccess, setIsSuccess] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -25,10 +37,18 @@ export default function RegisterPage() {
       const response = await register(formData);
       if (response.jwt) {
         localStorage.setItem('token', response.jwt);
-        router.push('/');
+        setIsSuccess(true);
+        setTimeout(() => {
+          router.push('/');
+        }, 3000);
       }
-    } catch (err: any) {
-      setError(err.response?.data?.error?.message || 'Error al registrar usuario');
+    } catch (err: unknown) {
+      if (err && typeof err === 'object' && 'response' in err) {
+        const apiError = err as ApiError;
+        setError(apiError.response?.data?.error?.message || 'Error al registrar usuario');
+      } else {
+        setError('Error al registrar usuario');
+      }
     }
   };
 
@@ -46,6 +66,15 @@ export default function RegisterPage() {
         </CardHeader>
         <form onSubmit={handleSubmit}>
           <CardContent className="space-y-4">
+            {isSuccess && (
+             <Alert variant="default" className="mb-4 border-green-500 bg-green-50">
+             <CheckCircle className="h-4 w-4 text-green-500" />
+             <AlertTitle className="text-green-800">¡Registro exitoso!</AlertTitle>
+             <AlertDescription className="text-green-700">
+               Has sido registrado correctamente. Serás redirigido en unos segundos.
+             </AlertDescription>
+           </Alert>
+            )}
             <div className="space-y-2">
               <Label htmlFor="username">Nombre de usuario</Label>
               <Input

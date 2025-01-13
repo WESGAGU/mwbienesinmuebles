@@ -6,6 +6,7 @@ import Footer from "@/components/navagation/footer";
 import { ThemeProvider } from "@/components/theme-provider";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
+import { Toaster } from 'react-hot-toast';
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -35,6 +36,7 @@ export default function RootLayout({
       >
         <Analytics/>
         <SpeedInsights/>
+        <Toaster />
         <ThemeProvider
             attribute="class"
             defaultTheme="system"

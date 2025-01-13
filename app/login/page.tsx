@@ -2,13 +2,13 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { login } from '@/lib/auth';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import Link from 'next/link';
 import { LogIn } from 'lucide-react';
+import toast from 'react-hot-toast';
 
 export default function LoginPage() {
   const router = useRouter();
@@ -16,18 +16,28 @@ export default function LoginPage() {
     identifier: '',
     password: '',
   });
-  const [error, setError] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await login(credentials);
-      if (response.jwt) {
-        localStorage.setItem('token', response.jwt);
-        router.push('/');
+      const response = await fetch(`${process.env.STRAPI_HOST}/api/auth/local`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(credentials),
+      });
+      const data = await response.json();
+      if (data.jwt) {
+        localStorage.setItem('token', data.jwt); // Almacenar el token
+        toast.success('Inicio de sesión exitoso.');
+        router.push('/dashboard');
+      } else {
+        toast.error('Credenciales incorrectas.');
       }
-    } catch (err: any) {
-      setError(err.response?.data?.error?.message || 'Error al iniciar sesión');
+    } catch (err: unknown) {
+      console.error('Error al iniciar sesión:', err);
+      toast.error('Ocurrió un error. Inténtalo de nuevo.');
     }
   };
 
@@ -39,9 +49,6 @@ export default function LoginPage() {
             <LogIn className="h-10 w-10 text-primary" />
           </div>
           <h2 className="text-2xl font-bold text-center">Iniciar sesión</h2>
-          <p className="text-sm text-muted-foreground text-center">
-            Ingresa tus credenciales para acceder
-          </p>
         </CardHeader>
         <form onSubmit={handleSubmit}>
           <CardContent className="space-y-4">
@@ -69,9 +76,6 @@ export default function LoginPage() {
                 }
               />
             </div>
-            {error && (
-              <p className="text-sm text-destructive text-center">{error}</p>
-            )}
           </CardContent>
           <CardFooter className="flex flex-col space-y-4">
             <Button type="submit" className="w-full">

@@ -88,7 +88,7 @@ const Navbar = () => {
             )}
           </div>
 
-          <User strokeWidth={1} className="cursor-pointer" onClick={() => router.push("/register")}/>
+          <User strokeWidth={1} className="cursor-pointer" onClick={() => router.push("/login")}/>
           <ToggleTheme />
         </div>
       </div>

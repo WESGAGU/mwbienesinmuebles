@@ -64,7 +64,6 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-title" content="MW Bienes Inmuebles" />
         <meta name="theme-color" media="(prefers-color-scheme: light)" content="white" />
         <meta name="theme-color" media="(prefers-color-scheme: dark)" content="black" />
-        {/* Etiqueta viewport (solo una) */}
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
         {/* Datos Estructurados */}
         <script

@@ -53,13 +53,14 @@ const Navbar = () => {
         {/* Logo y Título */}
         <div className="hidden lg:flex items-center justify-center gap-2">
           <Image src={"/MW.png"} alt="logoImage" width={60} height={60} />
-          <h1
+          <h2
             className="text-sm font-semibold"
             onClick={() => router.push("/")}
           >
-            Bines Inmuebles{" "}
-            <span className="text-blue-700 opacity-80 text-xs">M&W</span>
-          </h1>
+            <span className="text-blue-700 opacity-80 text-lg pr-1">MW</span>
+            Bines Inmuebles
+           
+          </h2>
         </div>
 
         {/* MENÚ DE PANTALLAS GRANDES (DESKTOP) */}

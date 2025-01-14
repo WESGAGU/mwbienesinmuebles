@@ -22,16 +22,16 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "M&W Bienes Inmuebles",
+  title: "MW Bienes Inmuebles",
   description:
-    "Descubre las mejores propiedades en Nicaragua con M&W Bienes Inmuebles. Ofrecemos asesoramiento y servicio de intermediación para casas, solares y fincas.",
+    "Descubre propiedades en Nicaragua con MW Bienes Inmuebles. Ofrecemos asesoramiento y servicio de intermediación para casas, solares y fincas.",
   viewport: "width=device-width, initial-scale=1",
   robots: "index, follow",
   themeColor: "#ffffff",
   openGraph: {
     title: "MW Bienes Inmuebles",
     description:
-      "Encuentra casas, solares y fincas en Nicaragua con M&W Bienes Inmuebles. Ofrecemos asesoramiento experto y servicio de intermediación.",
+      "Encuentra casas, solares y fincas en Nicaragua con MW Bienes Inmuebles. Ofrecemos asesoramiento experto y servicio de intermediación.",
     url: "https://mwbienesinmuebles.com",
     siteName: "M&W Bienes Inmuebles",
     images: [
@@ -58,6 +58,12 @@ export default function RootLayout({
   return (
     <html lang="es">
       <head>
+        {/* Apple Touch Icon */}
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        {/* Meta tags adicionales para iOS */}
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="apple-mobile-web-app-title" content="MW Bienes Inmuebles" />
         {/* Datos Estructurados */}
         <script
           type="application/ld+json"
@@ -75,7 +81,7 @@ export default function RootLayout({
               },
               image: "https://mwbienesinmuebles.com/og-image.jpg",
               sameAs: [
-                "https://https://www.facebook.com/profile.php?id=61567937872394",
+                "https://www.facebook.com/profile.php?id=61567937872394",
                 "https://www.instagram.com/mwbienesinmuebles",
                 "https://www.tiktok.com/@mwbienesinmuebles",
               ],

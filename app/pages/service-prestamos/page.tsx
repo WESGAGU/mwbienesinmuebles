@@ -84,7 +84,7 @@ const LoanComponent = () => {
         <Card className="col-span-full md:row-start-1 bg-gradient-to-r from-purple-400 to-blue-500 dark:from-purple-800 dark:to-blue-900 text-white">
           <CardHeader>
             <CardTitle className="text-3xl font-bold text-center">
-              Servicios de Préstamos M&W
+              Servicios de Préstamos 
             </CardTitle>
             <CardDescription className="text-center text-gray-100">
               Soluciones financieras adaptadas a tus necesidades
@@ -92,7 +92,7 @@ const LoanComponent = () => {
           </CardHeader>
           <CardContent>
             <p className="text-center">
-              En M&W Bienes Inmuebles, ofrecemos una variedad de opciones de préstamos para ayudarte a alcanzar tus metas financieras. Ya sea que necesites un pequeño impulso o una inversión significativa, tenemos la solución perfecta para ti.
+              En MW Bienes Inmuebles, ofrecemos una variedad de opciones de préstamos para ayudarte a alcanzar tus metas financieras. Ya sea que necesites un pequeño impulso o una inversión significativa, tenemos la solución perfecta para ti.
             </p>
           </CardContent>
         </Card>

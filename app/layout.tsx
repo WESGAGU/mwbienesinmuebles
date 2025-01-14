@@ -25,9 +25,7 @@ export const metadata: Metadata = {
   title: "MW Bienes Inmuebles",
   description:
     "Descubre propiedades en Nicaragua con MW Bienes Inmuebles. Ofrecemos asesoramiento y servicio de intermediación para casas, solares y fincas.",
-  viewport: "width=device-width, initial-scale=1",
   robots: "index, follow",
-  themeColor: "#ffffff",
   openGraph: {
     title: "MW Bienes Inmuebles",
     description:
@@ -64,6 +62,9 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="apple-mobile-web-app-title" content="MW Bienes Inmuebles" />
+        <meta name="theme-color" media="(prefers-color-scheme: light)" content="white" />
+        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="black" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
         {/* Datos Estructurados */}
         <script
           type="application/ld+json"

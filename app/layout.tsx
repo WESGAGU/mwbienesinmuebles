@@ -22,7 +22,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "MW Bienes Inmuebles | Propiedades en Nicaragua",
+  title: "MW Bienes Inmuebles",
   description:
     "Descubre propiedades en Nicaragua con MW Bienes Inmuebles. Ofrecemos asesoramiento experto y servicio de intermediación para casas, solares, fincas y más.",
   keywords: [
@@ -70,7 +70,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "MW Bienes Inmuebles | Propiedades en Nicaragua",
+    title: "MW Bienes Inmuebles",
     description: "Expertos en bienes inmuebles en Nicaragua. Casas, solares, fincas y más.",
     site: "@mwbienesinmuebles",
     creator: "@mwbienesinmuebles",

@@ -273,7 +273,7 @@ export default function RootLayout({
                   "@type": "Offer",
                   itemOffered: {
                     "@type": "Service",
-                    name: "Alquiler de propiedades"
+                    name: "Prestamos accesibles"
                   }
                 }
               ]

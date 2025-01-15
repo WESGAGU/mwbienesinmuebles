@@ -10,7 +10,7 @@
 
   <!-- Asesoramiento -->
   <url>
-    <loc>https://mwbienesinmuebles.com/asesoramiento</loc>
+    <loc>https://mwbienesinmuebles.com/pages/service-asesoramiento</loc>
     <lastmod>2024-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -18,7 +18,7 @@
 
   <!-- Préstamos -->
   <url>
-    <loc>https://mwbienesinmuebles.com/prestamos</loc>
+    <loc>https://mwbienesinmuebles.com/pages/service-prestamos</loc>
     <lastmod>2024-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -43,6 +43,22 @@
   <!-- Fincas -->
   <url>
     <loc>https://mwbienesinmuebles.com/categories/fincas</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- about -->
+  <url>
+    <loc>https://mwbienesinmuebles.com/pages/about</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- contact -->
+  <url>
+    <loc>https://mwbienesinmuebles.com/pages/contact</loc>
     <lastmod>2024-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>

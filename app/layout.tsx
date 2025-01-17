@@ -49,7 +49,7 @@ export const metadata: Metadata = {
   ],
   robots: "index, follow",
   openGraph: {
-    title: "MW Bienes Inmuebles | Expertos en Propiedades en Nicaragua",
+    title: "MW Bienes Inmuebles",
     description:
       "Encuentra casas, solares y fincas en Nicaragua con MW Bienes Inmuebles. Ofrecemos asesoramiento experto y servicio de intermediación para todas tus necesidades inmobiliarias.",
     url: "https://mwbienesinmuebles.com",
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
         url: "https://mwbienesinmuebles.com/MW.png",
         width: 1200,
         height: 630,
-        alt: "MW Bienes Inmuebles - Propiedades en Nicaragua",
+        alt: "MW Bienes Inmuebles",
       },
     ],
     locale: "es_NI",
@@ -205,10 +205,10 @@ export default function RootLayout({
           media="(prefers-color-scheme: dark)"
           content="black"
         />
-        <meta
+        {/* <meta
           name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
-        />
+        /> */}
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}

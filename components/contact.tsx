@@ -9,6 +9,24 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import Link from "next/link";
 
+// Definicion de el SEO para la página "contact"
+export const metadata = {
+  title: "Contacto MW Bienes Inmuebles",
+  description: "Contacta con MW bines Inmuebles, estamos disponibles para cualquier consulta que quieras hacernos",
+  canonical: "https://mwbienesinmuebles.com/pages/contact",
+  openGraph: {
+    url: "https://mwbienesinmuebles.com/pages/contact",
+    title: "Sobre MW Bienes Inmuebles",
+    description: "Somos M&W Bienes Inmuebles, una agencia joven y comprometida con ayudarte a encontrar el hogar o propiedad ideal en Nicaragua. Conoce nuestra historia, misión y visión.",
+    images: [
+      {
+        url: "https://mwbienesinmuebles.com/MW.png", 
+        alt: "Imagen de MW Bienes Inmuebles",
+      },
+    ],
+  },
+};
+
 
 export default function ContactComponent() {
   const [text1, setText1] = useState("");
@@ -31,6 +49,34 @@ export default function ContactComponent() {
 
   return (
     <div className="container mx-auto px-4 py-8">
+      {/* JSON-LD para Schema.org */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            name: "MW Bienes Inmuebles",
+            url: "https://mwbienesinmuebles.com",
+            logo: "https://mwbienesinmuebles.com/MW.png",
+            description:
+              "Contactanos somos una agencia joven y comprometida con ayudarte a encontrar el hogar o propiedad ideal en Nicaragua.",
+            foundingDate: "2024-12-20", // Fecha de fundación
+            contactPoint: {
+              "@type": "ContactPoint",
+              telephone: "+505-8443-3992", // Número de teléfono de MW
+              contactType: "Atención al cliente",
+              email: "mwbienesinmuebles@gmail.com", // Correo electrónico
+              areaServed: "Nicaragua",
+            },
+            sameAs: [
+              "https://www.facebook.com/profile.php?id=61567937872394", // enlace de Facebook
+              "#", //  enlace de Instagram
+            ],
+          }),
+        }}
+      />
+
       {/* Sección de encabezado */}
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
@@ -58,13 +104,19 @@ export default function ContactComponent() {
             </div>
             <div className="flex items-center">
               <MdPhone className="w-6 h-6 text-blue-600 dark:text-blue-400 mr-4" />
-              <Link href="tel:+5058443392" className="text-gray-800 dark:text-gray-200 hover:text-blue-600">
+              <Link
+                href="tel:+5058443392"
+                className="text-gray-800 dark:text-gray-200 hover:text-blue-600"
+              >
                 +505 84433992
               </Link>
             </div>
             <div className="flex items-center">
               <MdPhone className="w-6 h-6 text-blue-600 dark:text-blue-400 mr-4" />
-              <Link href="tel:+5057255784" className="text-gray-800 dark:text-gray-200 hover:text-blue-600">
+              <Link
+                href="tel:+5057255784"
+                className="text-gray-800 dark:text-gray-200 hover:text-blue-600"
+              >
                 +505 57255784
               </Link>
             </div>
@@ -162,7 +214,8 @@ export default function ContactComponent() {
           <CardContent>
             <div className="flex justify-center space-x-6">
               <Link
-                href="https://www.facebook.com/profile.php?id=61567937872394" target="_blank"
+                href="https://www.facebook.com/profile.php?id=61567937872394"
+                target="_blank"
                 className="bg-blue-600 text-white rounded-lg p-4 hover:bg-blue-700 transition-colors"
               >
                 <FaFacebook className="w-8 h-8" />

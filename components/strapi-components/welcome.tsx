@@ -23,7 +23,7 @@ export const Welcome = async () => {
             {title}
           </h1>
           <p className="text-base md:text-lg lg:text-xl text-gray-200">
-            {description}
+            {description} 
           </p>
         </div>
       </div>

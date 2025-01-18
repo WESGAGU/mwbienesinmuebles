@@ -24,7 +24,7 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: "MW Bienes Inmuebles",
   description:
-    "Descubre propiedades en Nicaragua con MW Bienes Inmuebles. Ofrecemos asesoramiento experto y servicio de intermediación para casas, solares, fincas y más.",
+    "Encuentra propiedades en Nicaragua con MW Bienes Inmuebles. Te asesoramos, gestionamos préstamos personales y facilitamos la compra y venta de inmuebles.",
   keywords: [
     "bienes inmuebles Nicaragua",
     "casas en venta Nicaragua",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "MW Bienes Inmuebles",
     description:
-      "Encuentra casas, solares y fincas en Nicaragua con MW Bienes Inmuebles. Ofrecemos asesoramiento experto y servicio de intermediación para todas tus necesidades inmobiliarias.",
+      "Encuentra propiedades en Nicaragua con MW Bienes Inmuebles. Te asesoramos, gestionamos préstamos personales y facilitamos la compra y venta de inmuebles.",
     url: "https://mwbienesinmuebles.com",
     siteName: "MW Bienes Inmuebles",
     images: [

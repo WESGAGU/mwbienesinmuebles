@@ -19,7 +19,7 @@ export const Welcome = async () => {
       <div className="absolute inset-0 bg-black bg-opacity-50" />
       <div className="relative z-10 w-full h-full flex flex-col items-center justify-center p-6">
         <div className="w-full max-w-4xl text-center">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-white">
+          <h1 className="text-xl md:text-2xl lg:text-3xl font-bold mb-4 text-white">
             {title}
           </h1>
           <p className="text-base md:text-lg lg:text-xl text-gray-200">

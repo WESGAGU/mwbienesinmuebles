@@ -59,9 +59,9 @@ export default async function ProductPage({
 
           {/* Property Title and Actions */}
           <div className="w-full flex justify-between">
-            <h1 className="flex text-2xl md:text-3xl font-bold">
+            <h2 className="flex text-2xl md:text-3xl font-bold">
               {product.name}
-            </h1>
+            </h2>
             <div className="flex space-x-2">
             <FavoriteProduct product={product} />
               <ShareButton
@@ -148,12 +148,13 @@ export default async function ProductPage({
                       </span>
                       <p className="text-gray-500">{product.Municipality}</p>
                     </div>
-                    <div className="text-gray-500">
+                    <div>
                       <span className="text-sm text-muted-foreground">
                         Dirección
                       </span>
-                      <p>{product.address}</p>
+                      <p className="text-gray-500">{product.address}</p>
                     </div>
+                   
                     <div>
                       <span className="text-sm text-muted-foreground">
                         Fecha de Publicación

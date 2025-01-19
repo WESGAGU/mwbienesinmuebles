@@ -1,6 +1,7 @@
 import { Welcome } from "@/components/strapi-components/welcome";
 import { Categories } from "@/components/strapi-components/categories";
 import ServicesOverview from "@/components/ServicesOverview";
+import QuickFilter from "@/components/QuickFilter";
 
 export default function Home() {
   return (
@@ -9,7 +10,11 @@ export default function Home() {
         <Welcome />
       </div>
 
-      <div className="w-full lg:w-[84%] mx-auto">
+      <div>
+      <QuickFilter/>
+      </div>
+
+      <div>
         <ServicesOverview />
       </div>
 

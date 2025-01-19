@@ -39,46 +39,68 @@ type Pagination = {
   total: number;
 };
 
-export function getProducts({ categoryId, page = 1 }: { categoryId: string; page?: number }) {
-  return query(
-    `products?fields[0]=name&fields[1]=slug&fields[2]=isActive&fields[3]=price&fields[4]=description&fields[5]=departament&fields[6]=Municipality&fields[7]=address&fields[8]=fecha_publicacion&fields[9]=iframe_map&populate[caracteristicasCasas]=*&populate[images][fields][0]=url&filters[product_category][slug][$contains]=${categoryId}&pagination[page]=${page}&pagination[pageSize]=10`
-  ).then((res: { data: Product[]; meta: { pagination: Pagination } }) => {
-    const { data, meta } = res;
-    const products = data.map((product: Product) => {
-      const {
-        name,
-        slug,
-        isActive,
-        price,
-        description,
-        departament,
-        Municipality,
-        address,
-        fecha_publicacion,
-        iframe_map,
-        images,
-        caracteristicasCasas,
-      } = product;
+export function getProducts({
+  categoryId,
+  departament,
+  municipality,
+  page = 1,
+}: {
+  categoryId?: string; // Ahora es opcional
+  departament?: string;
+  municipality?: string;
+  page?: number;
+}) {
+  const filters = [];
 
-      const image = `${STRAPI_HOST}${images[0].url}`;
-      return {
-        name,
-        slug,
-        isActive,
-        price,
-        description,
-        departament,
-        Municipality,
-        address,
-        fecha_publicacion,
-        iframe_map,
-        image,
-        caracteristicasCasas,
-      };
-    });
+  // Añadir filtros solo si tienen un valor
+  if (categoryId) filters.push(`filters[product_category][slug][$eq]=${categoryId}`);
+  if (departament) filters.push(`filters[departament][$eq]=${departament}`);
+  if (municipality) filters.push(`filters[Municipality][$eq]=${municipality}`);
 
-    return { products, pagination: meta.pagination };
-  });
+  // Construir la consulta de Strapi
+  const queryString = `products?fields[0]=name&fields[1]=slug&fields[2]=isActive&fields[3]=price&fields[4]=description&fields[5]=departament&fields[6]=Municipality&fields[7]=address&fields[8]=fecha_publicacion&fields[9]=iframe_map&populate[caracteristicasCasas]=*&populate[images][fields][0]=url&${filters.join(
+    "&"
+  )}&pagination[page]=${page}&pagination[pageSize]=10`;
+
+  return query(queryString).then(
+    (res: { data: Product[]; meta: { pagination: Pagination } }) => {
+      const { data, meta } = res;
+      const products = data.map((product: Product) => {
+        const {
+          name,
+          slug,
+          isActive,
+          price,
+          description,
+          departament,
+          Municipality,
+          address,
+          fecha_publicacion,
+          iframe_map,
+          images,
+          caracteristicasCasas,
+        } = product;
+
+        const image = `${STRAPI_HOST}${images[0].url}`;
+        return {
+          name,
+          slug,
+          isActive,
+          price,
+          description,
+          departament,
+          Municipality,
+          address,
+          fecha_publicacion,
+          iframe_map,
+          image,
+          caracteristicasCasas,
+        };
+      });
+
+      return { products, pagination: meta.pagination };
+    }
+  );
 }
 
 // Función para obtener un solo producto por su slug o ID

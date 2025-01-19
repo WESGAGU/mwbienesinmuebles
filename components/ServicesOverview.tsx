@@ -6,7 +6,7 @@ import Image from "next/image";
 
 const ServicesOverview = () => {
   return (
-    <div className="container mx-auto px-4 py-12">
+    <div className="container mx-auto px-4 py-12 w-full lg:w-[85%]">
       {/* Título principal */}
       <h2 className="text-4xl font-bold text-center mb-12 text-gray-900 dark:text-gray-100">
         Nuestros Servicios
@@ -42,7 +42,7 @@ const ServicesOverview = () => {
                     Compra y Venta
                   </h3>
                   <p className="text-sm mt-2">
-                    Encuentra tu hogar ideal o maximiza el valor de tu propiedad.
+                    Encuentra tu hogar ideal o maximiza la visibilidad de tu propiedad.
                   </p>
                 </div>
                 <div className="bg-white bg-opacity-10 p-4 rounded-lg backdrop-blur-sm hover:bg-opacity-20 transition-all duration-300">
@@ -80,7 +80,7 @@ const ServicesOverview = () => {
             <div>
               <h2 className="text-3xl font-bold mb-4 flex items-center">
                 <DollarSign className="w-8 h-8 mr-2" />
-                Préstamos Inmobiliarios
+                Préstamos Personales
               </h2>
               <p className="mb-6 text-lg">
                 Ofrecemos soluciones financieras adaptadas a tus necesidades, con tasas competitivas y plazos flexibles.

@@ -16,7 +16,7 @@ const MenuNavbarMobil = () => {
   const [isOpen, setIsOpen] = React.useState(false);
 
   return (
-    <div className="bg-white dark:bg-black border-none bg-none">
+    <div>
       <Sheet onOpenChange={(open) => setIsOpen(open)}>
         <SheetTrigger asChild>
           <button className="p-2 focus:outline-none">

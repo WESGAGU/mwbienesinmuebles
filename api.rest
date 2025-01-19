@@ -23,5 +23,6 @@ Authorization: Bearer 93c4a0ea487efd80aed7c5921b5a43fea6a95cae55a5d11085ee6db8a5
 
 ### Api de users
 
-GET http://localhost:1337/api/users?populate=products
+https://mwbackend.onrender.com/api/product-categories
+
 Authorization: Bearer 97723fddac93feea0b7f8ecaf2ff5414b43e2edb0e033b9089ac67cf50c3f57c3c01b3925e5782d7630988d9b20077d4e8ac61ab24cf90464e8a36f54c39c116c5239c0a486f13e4b0f2aa39fa9c550f222957265090394c18b0d554df3631c3079d73b4b25494af2901c9d00141ea53b391a3e1e490dbfcd97c7840c2fd0366

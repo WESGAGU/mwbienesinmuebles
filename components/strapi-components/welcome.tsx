@@ -21,15 +21,11 @@ export const Welcome = async () => {
       
       {/* Contenido de texto */}
       <div className="relative z-10 w-full h-full flex flex-col items-center justify-center p-4 sm:p-6">
-        <div className="w-full max-w-4xl text-center">
-<<<<<<< HEAD
-          <h1 className="text-xl md:text-2xl lg:text-3xl font-bold mb-4 text-white">
-=======
-          {/* Título */}
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 text-white">
->>>>>>> recuperar-cambios
-            {title}
-          </h1>
+<div className="w-full max-w-4xl text-center">
+  {/* Título */}
+  <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 text-white">
+    {title}
+  </h1>
           
           {/* Descripción */}
           <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-200">

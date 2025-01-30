@@ -57,11 +57,7 @@ export default function QuickFilter() {
   };
 
   return (
-    <div className=" h-full w-[93%]  lg:w-[85%] mx-auto  bg-slate-950 p-6 rounded-xl shadow-xl">
-      {/* Gradientes radiales de fondo */}
-      <div className="absolute bottom-0 left-[-20%] right-0 top-[-10%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]"></div>
-      <div className="absolute bottom-0 right-[-20%] top-[-10%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]"></div>
-
+    <div className=" h-full w-full md:w-full lg:w-10/12 mx-auto  bg-slate-950 p-6 rounded-xl shadow-xl">
       {/* Contenido del filtro */}
       <div className="">
         <h2 className="text-4xl font-bold text-center mb-12 text-white">

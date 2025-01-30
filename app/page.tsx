@@ -5,7 +5,7 @@ import QuickFilter from "@/components/QuickFilter";
 
 export default function Home() {
   return (
-    <div>
+    <div className="w-11/12 lg:w-10/12 mx-auto">
       <div>
         <Welcome />
       </div>

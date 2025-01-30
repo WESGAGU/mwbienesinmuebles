@@ -9,16 +9,16 @@ export const Categories = async () => {
 
     return (
         <div className="flex justify-center mb-5">
-            <div className="max-w-7xl w-full px-4">
+            <div className="w-96 md:w-full lg:w-10/12 px-0 lg:px-4">
                 <h2 className="text-3xl font-bold text-center text-gray-800 dark:text-white mb-10">
                     Todas las Categorias
                 </h2>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-6 ">
+                <div className="grid grid-cols-1  md:grid-cols-6 gap-6 ">
                     {categories.map((category, index) => (
                         <div 
                             key={index} 
-                            className="bg-white dark:bg-gray-800 shadow-lg rounded-xl overflow-hidden hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-2 lg:col-span-2 "
+                            className="bg-white dark:bg-gray-800 shadow-lg rounded-xl overflow-hidden hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-2 col-span-2 "
                         >
                             <img 
                                 src={category.image} 

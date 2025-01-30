@@ -6,7 +6,7 @@ import Image from "next/image";
 
 const ServicesOverview = () => {
   return (
-    <div className="container mx-auto px-4 py-12 w-full lg:w-[85%]">
+    <div className="container mx-auto px-0 lg:px-4 py-12 w-80 md:w-full lg:w-10/12">
       {/* Título principal */}
       <h2 className="text-4xl font-bold text-center mb-12 text-gray-900 dark:text-gray-100">
         Nuestros Servicios

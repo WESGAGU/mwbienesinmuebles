@@ -43,7 +43,7 @@ export default async function ProductPage({
   const shareData = {
     title: product.name,
     text: `Mira esta propiedad: ${product.name}, ubicada en ${product.address}.`,
-    url: `${process.env.STRAPI_HOST}/products/${productId}`,
+    url: `${process.env.CLIENT_HOST_PRODUCTION}/products/${productId}`,
   };
 
   return (

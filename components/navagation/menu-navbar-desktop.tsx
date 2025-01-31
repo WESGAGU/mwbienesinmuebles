@@ -36,7 +36,7 @@ const MenuNavbarDesktop = () => {
                 href="/pages/service-prestamos" 
                 title="Prestamos"
                 className="hover:bg-gray-400 hover:rounded-xl hover:bg-opacity-30 dark:hover:bg-gray-800 ">
-                  Re-usable components built using Radix UI and Tailwind CSS.
+                  Prestamos personales accesibles.
                 </ListItem>
 
                 <ListItem
@@ -44,7 +44,7 @@ const MenuNavbarDesktop = () => {
                   title="Asesoramientos"
                   className="hover:bg-gray-400 hover:rounded-xl hover:bg-opacity-30 dark:hover:bg-gray-800"
                 > 
-                  How to install dependencies and structure your app.
+                  Asesormiento Inmobiliario para encontrar o vender la propiedad de tus sueños.
                 </ListItem>
               </ul>
             </NavigationMenuContent>

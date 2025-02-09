@@ -81,9 +81,9 @@ export default function QuickFilter() {
             </SelectTrigger>
             <SelectContent className="bg-slate-900 border border-white/10 text-white">
               <SelectItem value="Nueva-Segovia">Nueva Segovia</SelectItem>
-              <SelectItem value="Esteli">Estelí</SelectItem>
+              {/* <SelectItem value="Esteli">Estelí</SelectItem>
               <SelectItem value="Managua">Managua</SelectItem>
-              <SelectItem value="León">León</SelectItem>
+              <SelectItem value="León">León</SelectItem> */}
             </SelectContent>
           </Select>
 
@@ -93,8 +93,8 @@ export default function QuickFilter() {
             </SelectTrigger>
             <SelectContent className="bg-slate-900 border border-white/10 text-white">
               <SelectItem value="Jalapa">Jalapa</SelectItem>
-              <SelectItem value="Ocotal">Ocotal</SelectItem>
-              <SelectItem value="Esteli">Estelí</SelectItem>
+              {/* <SelectItem value="Ocotal">Ocotal</SelectItem>
+              <SelectItem value="Esteli">Estelí</SelectItem> */}
             </SelectContent>
           </Select>
         </div>

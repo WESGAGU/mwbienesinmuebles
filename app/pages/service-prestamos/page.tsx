@@ -83,7 +83,7 @@ const LoanComponent = () => {
         <Card className="col-span-full bg-gradient-to-r from-purple-400 to-blue-500 dark:from-purple-800 dark:to-blue-900 text-white">
           <CardHeader>
             <CardTitle className="text-2xl sm:text-3xl font-bold text-center">
-              Servicios de Préstamos 
+              Servicio de Préstamos 
             </CardTitle>
             <CardDescription className="text-center text-gray-100 text-sm sm:text-base">
               Soluciones financieras adaptadas a tus necesidades

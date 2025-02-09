@@ -53,7 +53,7 @@ const MenuNavbarMobil = () => {
             </Link>
 
             {/* Sección de Prestamos */}
-            <Accordion type="single" collapsible className="w-full">
+            {/* <Accordion type="single" collapsible className="w-full">
               <AccordionItem value="loans">
                 <AccordionTrigger className="text-lg font-medium text-left hover:text-primary">
                   Servicios
@@ -77,7 +77,15 @@ const MenuNavbarMobil = () => {
                   </div>
                 </AccordionContent>
               </AccordionItem>
-            </Accordion>
+            </Accordion> */}
+
+            <Link
+              href="/pages/service-prestamos"
+              className="text-lg font-medium hover:text-primary relative hover:underline"
+              onClick={() => setIsOpen(false)}
+            >
+              prestamos
+            </Link>
 
             {/* Sección de Propiedades */}
             <Accordion type="single" collapsible className="w-full">

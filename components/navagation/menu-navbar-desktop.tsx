@@ -28,26 +28,12 @@ const MenuNavbarDesktop = () => {
             </Link>
           </NavigationMenuItem>
 
-          <NavigationMenuItem className="dark:text-">
-            <NavigationMenuTrigger>Servicios</NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                <ListItem 
-                href="/pages/service-prestamos" 
-                title="Prestamos"
-                className="hover:bg-gray-400 hover:rounded-xl hover:bg-opacity-30 dark:hover:bg-gray-800 ">
-                  Prestamos personales accesibles.
-                </ListItem>
-
-                <ListItem
-                  href="/pages/service-asesoramientos"
-                  title="Asesoramientos"
-                  className="hover:bg-gray-400 hover:rounded-xl hover:bg-opacity-30 dark:hover:bg-gray-800"
-                > 
-                  Asesormiento Inmobiliario para encontrar o vender la propiedad de tus sueños.
-                </ListItem>
-              </ul>
-            </NavigationMenuContent>
+          <NavigationMenuItem>
+            <Link href="/pages/service-prestamos" legacyBehavior passHref>
+              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                Prestamos
+              </NavigationMenuLink>
+            </Link>
           </NavigationMenuItem>
 
           <NavigationMenuItem>

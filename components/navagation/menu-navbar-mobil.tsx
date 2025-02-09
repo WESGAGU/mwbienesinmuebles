@@ -103,7 +103,7 @@ const MenuNavbarMobil = () => {
                       Casas
                     </Link>
                     <Link
-                      href="/categories/terrenos"
+                      href="/categories/solares"
                       className="block text-base text-muted-foreground hover:text-primary relative hover:underline"
                       onClick={() => setIsOpen(false)}
                     >

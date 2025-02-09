@@ -48,7 +48,7 @@ const MenuNavbarDesktop = () => {
                 </ListItem>
 
                 <ListItem
-                  href="/categories/terrenos"
+                  href="/categories/solares"
                   title="Solares"
                   className="hover:bg-gray-400 hover:rounded-xl hover:bg-opacity-30 dark:hover:bg-gray-800"
                 > 

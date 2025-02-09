@@ -49,7 +49,7 @@ const MenuNavbarDesktop = () => {
 
                 <ListItem
                   href="/categories/terrenos"
-                  title="Terrenos"
+                  title="Solares"
                   className="hover:bg-gray-400 hover:rounded-xl hover:bg-opacity-30 dark:hover:bg-gray-800"
                 > 
                  Para hacer cualquier contruccion que se te ocurra.

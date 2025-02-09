@@ -107,7 +107,7 @@ const MenuNavbarMobil = () => {
                       className="block text-base text-muted-foreground hover:text-primary relative hover:underline"
                       onClick={() => setIsOpen(false)}
                     >
-                      Terrenos
+                      Solares
                     </Link>
                     <Link
                       href="/categories/fincas"

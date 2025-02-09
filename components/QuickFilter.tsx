@@ -70,7 +70,7 @@ export default function QuickFilter() {
             </SelectTrigger>
             <SelectContent className="bg-slate-900 border border-white/10 text-white">
               <SelectItem value="casas">Casas</SelectItem>
-              <SelectItem value="terrenos">Terrenos</SelectItem>
+              <SelectItem value="solares">Solares</SelectItem>
               <SelectItem value="fincas">Fincas</SelectItem>
             </SelectContent>
           </Select>

@@ -226,6 +226,7 @@ export default async function ProductPage({
                     Video Tour de la Propiedad
                   </h3>
                   <div className="aspect-w-16 aspect-h-9">
+                  <span>Lo sentimos estamos en proceso de produccion de este video, muy pronto estara disponible! 🥲</span>  
                     <iframe
                       src={product.videoUrl}
                       title="YouTube video player"
@@ -233,6 +234,7 @@ export default async function ProductPage({
                       allowFullScreen
                       className="w-full h-96 rounded-xl"
                     />
+                    
                   </div>
                 </CardContent>
               </Card>
@@ -259,13 +261,13 @@ export default async function ProductPage({
               </div>
               <div className="grid grid-cols-2 gap-3">
                 <Link
-                  href="#"
+                  href="tel:57255784"
                   className="w-full rounded-xl flex justify-center items-center py-3 bg-blue-300 hover:bg-blue-500 text-white transition-colors duration-300"
                 >
                   <FaPhoneAlt className="mr-2 h-4 w-4" /> Llamar
                 </Link>
                 <Link
-                  href="#"
+                  href="https://wa.me/50557255784"
                   className="w-full rounded-xl flex justify-center items-center py-3 bg-green-400 hover:bg-green-600 text-white transition-colors duration-300"
                 >
                   <FaWhatsapp className="mr-2 h-4 w-4" /> WhatsApp

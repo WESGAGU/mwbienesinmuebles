@@ -3,6 +3,7 @@ import { Categories } from "@/components/strapi-components/categories";
 import ServicesOverview from "@/components/ServicesOverview";
 import QuickFilter from "@/components/QuickFilter";
 import MovingBanner from "@/components/movingBanner";
+import RecentProducts from "@/components/RecentProducts";
 
 
 export default function Home() {
@@ -17,6 +18,10 @@ export default function Home() {
 
       <div>
         <QuickFilter />
+      </div>
+
+      <div>
+        <RecentProducts />
       </div>
 
       <div>

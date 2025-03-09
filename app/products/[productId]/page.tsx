@@ -1,4 +1,3 @@
-
 import { getProduct } from '@/lib/get-products';
 import { Badge } from '@/components/ui/badge';
 import Link from 'next/link';
@@ -27,6 +26,7 @@ import {
 import ShareButton from '@/components/funcionalidades/share-button';
 import ImageCarousel from '@/components/funcionalidades/image-carousel'; // Importa el nuevo componente
 import FavoriteProduct from '@/components/funcionalidades/fovorite-product';
+import MarkdownRenderer from '@/components/funcionalidades/markdown-renderer';
 
 export default async function ProductPage({
   params,
@@ -200,8 +200,9 @@ export default async function ProductPage({
                       </AccordionTrigger>
                       <AccordionContent>
                         <p className="text-muted-foreground">
-                          {product.description}
+                        <MarkdownRenderer content={product.description} />
                         </p>
+                        
                       </AccordionContent>
                     </AccordionItem>
                   </Accordion>
@@ -267,7 +268,7 @@ export default async function ProductPage({
                   <FaPhoneAlt className="mr-2 h-4 w-4" /> Llamar
                 </Link>
                 <Link
-                  href="https://wa.me/50557255784"
+                  href="https://wa.me/50558288462"
                   className="w-full rounded-xl flex justify-center items-center py-3 bg-green-400 hover:bg-green-600 text-white transition-colors duration-300"
                 >
                   <FaWhatsapp className="mr-2 h-4 w-4" /> WhatsApp

@@ -31,7 +31,6 @@ type Image = {
   url: string;
 };
 
-// Definir tipo para la paginación
 type Pagination = {
   page: number;
   pageSize: number;
@@ -39,79 +38,87 @@ type Pagination = {
   total: number;
 };
 
-export function getProducts({
+// Obtener productos con filtros y paginación
+export async function getProducts({
   categoryId,
   departament,
   municipality,
   page = 1,
 }: {
-  categoryId?: string; // Ahora es opcional
+  categoryId?: string;
   departament?: string;
   municipality?: string;
   page?: number;
 }) {
-  const filters = [];
+  try {
+    const filters = [];
 
-  // Añadir filtros solo si tienen un valor
-  if (categoryId) filters.push(`filters[product_category][slug][$eq]=${categoryId}`);
-  if (departament) filters.push(`filters[departament][$eq]=${departament}`);
-  if (municipality) filters.push(`filters[Municipality][$eq]=${municipality}`);
+    if (categoryId) filters.push(`filters[product_category][slug][$eq]=${categoryId}`);
+    if (departament) filters.push(`filters[departament][$eq]=${departament}`);
+    if (municipality) filters.push(`filters[Municipality][$eq]=${municipality}`);
 
-  // Construir la consulta de Strapi
-  const queryString = `products?fields[0]=name&fields[1]=slug&fields[2]=isActive&fields[3]=price&fields[4]=description&fields[5]=departament&fields[6]=Municipality&fields[7]=address&fields[8]=fecha_publicacion&fields[9]=iframe_map&populate[caracteristicasCasas]=*&populate[images][fields][0]=url&${filters.join(
-    "&"
-  )}&pagination[page]=${page}&pagination[pageSize]=10`;
+    const queryString = `products?fields[0]=name&fields[1]=slug&fields[2]=isActive&fields[3]=price&fields[4]=description&fields[5]=departament&fields[6]=Municipality&fields[7]=address&fields[8]=fecha_publicacion&fields[9]=iframe_map&populate[caracteristicasCasas]=*&populate[images][fields][0]=url&${filters.join(
+      "&"
+    )}&pagination[page]=${page}&pagination[pageSize]=10`;
 
-  return query(queryString).then(
-    (res: { data: Product[]; meta: { pagination: Pagination } }) => {
-      const { data, meta } = res;
-      const products = data.map((product: Product) => {
-        const {
-          name,
-          slug,
-          isActive,
-          price,
-          description,
-          departament,
-          Municipality,
-          address,
-          fecha_publicacion,
-          iframe_map,
-          images,
-          caracteristicasCasas,
-        } = product;
+    const res: { data: Product[]; meta: { pagination: Pagination } } = await query(queryString);
 
-        const image = `${STRAPI_HOST}${images[0].url}`;
-        return {
-          name,
-          slug,
-          isActive,
-          price,
-          description,
-          departament,
-          Municipality,
-          address,
-          fecha_publicacion,
-          iframe_map,
-          image,
-          caracteristicasCasas,
-        };
-      });
+    const products = res.data.map((product) => {
+      const {
+        name,
+        slug,
+        isActive,
+        price,
+        description,
+        departament,
+        Municipality,
+        address,
+        fecha_publicacion,
+        iframe_map,
+        images,
+        caracteristicasCasas,
+      } = product;
 
-      return { products, pagination: meta.pagination };
-    }
-  );
+      // Manejo seguro de imágenes
+      const imageUrl = images?.length > 0 && images[0]?.url
+        ? images[0].url.startsWith("http")
+          ? images[0].url
+          : `${STRAPI_HOST}${images[0].url}`
+        : "";
+
+      return {
+        name,
+        slug,
+        isActive,
+        price,
+        description,
+        departament,
+        Municipality,
+        address,
+        fecha_publicacion,
+        iframe_map,
+        image: imageUrl,
+        caracteristicasCasas,
+      };
+    });
+
+    return { products, pagination: res.meta.pagination };
+  } catch (error) {
+    console.error("Error fetching products:", error);
+    return { products: [], pagination: { page: 1, pageSize: 10, pageCount: 0, total: 0 } };
+  }
 }
 
-// Función para obtener un solo producto por su slug o ID
-export function getProduct({ productId }: { productId: string }) {
-  return query(
-    `products?filters[slug][$eq]=${productId}&populate[caracteristicasCasas]=*&populate[images][fields][0]=url`
-  ).then((res: { data: Product[] }) => {
-    const { data } = res;
-    if (data.length === 0) return null;
+// Obtener un solo producto por ID
+export async function getProduct({ productId }: { productId: string }) {
+  try {
+    const res: { data: Product[] } = await query(
+      `products?filters[slug][$eq]=${productId}&populate[caracteristicasCasas]=*&populate[images][fields][0]=url`
+    );
 
-    const product: Product = data[0];
+    if (res.data.length === 0) return null;
+
+    const product: Product = res.data[0];
     const {
       name,
       slug,
@@ -124,13 +131,15 @@ export function getProduct({ productId }: { productId: string }) {
       fecha_publicacion,
       iframe_map,
       videoUrl,
-      images,
       priceM2,
+      images,
       caracteristicasCasas,
     } = product;
 
-    // Crear un array con todas las URLs de las imágenes
-    const imageUrls = images.map((img: Image) => `${STRAPI_HOST}${img.url}`);
+    // Manejo seguro de imágenes
+    const imageUrls = images?.map((img) =>
+      img.url.startsWith("http") ? img.url : `${STRAPI_HOST}${img.url}`
+    ) || [];
 
     return {
       name,
@@ -148,5 +157,8 @@ export function getProduct({ productId }: { productId: string }) {
       images: imageUrls,
       caracteristicasCasas,
     };
-  });
+  } catch (error) {
+    console.error(`Error fetching product with ID ${productId}:`, error);
+    return null;
+  }
 }

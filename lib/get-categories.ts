@@ -10,7 +10,7 @@ interface Category {
   name: string;
   slug: string;
   description: string;
-  cover: Cover;
+  cover?: Cover;
 }
 
 interface CategoryResult {
@@ -20,13 +20,26 @@ interface CategoryResult {
   image: string;
 }
 
-export function getCategories(): Promise<CategoryResult[]> {
-  return query("product-categories?fields[0]=name&fields[1]=slug&fields[2]=description&populate[cover][fields][0]=url")
-    .then((res: { data: Category[] }) => {
-      return res.data.map((category: Category) => {
-        const { name, slug, description, cover } = category;
-        const image = cover?.url ? `${STRAPI_HOST}${cover.url}` : '';
-        return { name, slug, description, image };
-      });
+export async function getCategories(): Promise<CategoryResult[]> {
+  try {
+    const res: { data: Category[] } = await query(
+      "product-categories?fields[0]=name&fields[1]=slug&fields[2]=description&populate[cover][fields][0]=url"
+    );
+
+    return res.data.map((category) => {
+      const { name, slug, description, cover } = category;
+
+      // Verifica si la URL ya es absoluta, si no, la concatena con STRAPI_HOST
+      const image = cover?.url
+        ? cover.url.startsWith("http")
+          ? cover.url
+          : `${STRAPI_HOST}${cover.url}`
+        : "";
+
+      return { name, slug, description, image };
     });
+  } catch (error) {
+    console.error("Error fetching categories:", error);
+    return [];
+  }
 }

@@ -27,10 +27,6 @@ type Product = {
   priceM2?: number;
 };
 
-type Image = {
-  url: string;
-};
-
 type Pagination = {
   page: number;
   pageSize: number;

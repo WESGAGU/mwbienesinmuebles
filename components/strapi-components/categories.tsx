@@ -1,5 +1,6 @@
 import { getCategories } from "@/lib/get-categories";
 import Link from "next/link";
+import Image from 'next/image'; // Importa el componente Image de next/image
 
 export const Categories = async () => {
     const categories = await getCategories();
@@ -20,11 +21,15 @@ export const Categories = async () => {
                             key={index} 
                             className="bg-white dark:bg-gray-800 shadow-lg rounded-xl overflow-hidden hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-2 col-span-2 "
                         >
-                            <img 
-                                src={category.image} 
-                                alt={category.name} 
-                                className="w-full h-80 object-cover rounded-t-lg"
-                            />
+                            <div className="relative w-full h-80">
+                                <Image 
+                                    src={category.image} 
+                                    alt={category.name} 
+                                    layout="fill" // Usa layout fill para que la imagen ocupe todo el contenedor
+                                    objectFit="cover" // Ajusta la imagen para que cubra el contenedor
+                                    className="rounded-t-lg"
+                                />
+                            </div>
                             <div className="p-6">
                                 <h2 className="text-xl font-semibold text-gray-800 dark:text-white mb-2">
                                     {category.name}

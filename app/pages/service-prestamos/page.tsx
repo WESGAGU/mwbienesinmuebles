@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -36,7 +36,7 @@ const LoanComponent = () => {
     return 5;
   }
 
-  const calculateLoan = () => {
+  const calculateLoan = useCallback(() => {
     const monthlyInterestRate = getInterestRate(loanAmount) / 100;
     const totalPayments = loanTerm;
     
@@ -68,11 +68,11 @@ const LoanComponent = () => {
     }
 
     setPaymentSchedule(schedule);
-  }
+  }, [loanAmount, loanTerm]);
 
   useEffect(() => {
     calculateLoan();
-  }, [loanAmount, loanTerm]);
+  }, [loanAmount, loanTerm, calculateLoan]);
 
   const currentInterestRate = getInterestRate(loanAmount);
 
@@ -276,7 +276,7 @@ const LoanComponent = () => {
           </CardContent>
           <CardFooter>
             <Link 
-              href="https://wa.me/50557255784" 
+              href="https://wa.me/50558288462" 
               className="w-full bg-green-500 hover:bg-green-600 text-white flex justify-center items-center py-2 rounded-xl text-sm sm:text-base"
               target="_blank"
               rel="noopener noreferrer"

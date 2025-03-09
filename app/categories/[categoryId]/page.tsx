@@ -6,6 +6,7 @@ import { Pagination } from "@/components/funcionalidades/pagination";
 import { FaBed, FaBath, FaCar, FaRulerCombined } from 'react-icons/fa';
 import FilterMobile from "@/components/funcionalidades/filter-mobile";
 import FilterDesktop from "@/components/funcionalidades/filter-desktop";
+import Image from 'next/image'; // Importa el componente Image de next/image
 
 export default async function CategoryPage(
   { params, searchParams }: { 
@@ -55,11 +56,13 @@ export default async function CategoryPage(
                 className="overflow-hidden dark:bg-gray-800 dark:border-gray-700"
               >
                 <CardHeader className="p-0">
-                  <div className="relative">
-                    <img
-                      className="w-full h-60 object-cover"
+                  <div className="relative w-full h-60">
+                    <Image
+                      className="object-cover"
                       src={product.image}
                       alt={product.name}
+                      layout="fill" // Usa layout fill para que la imagen ocupe todo el contenedor
+                      objectFit="cover" // Ajusta la imagen para que cubra el contenedor
                     />
                     {!product.isActive ? (
                       <div className="absolute top-5 left-2 bg-red-600 bg-opacity-95 text-white px-4 py-2">
